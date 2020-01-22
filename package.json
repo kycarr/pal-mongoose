@@ -8,9 +8,10 @@
   ],
   "scripts": {
     "format": "prettier --write '**/*.{js,jsx,json,ts,tsx}'",
-    "test:all": "npm run test:format && npm run test:audit",
+    "test:all": "npm run test:format && npm run test:audit && npm run test:lint",
     "test:audit": "npm audit --audit-level=moderate --production",
-    "test:format": "prettier --check '**/*.{js,jsx,json,ts,tsx}'"
+    "test:format": "prettier --check '**/*.{js,jsx,json,ts,tsx}'",
+    "test:lint": "eslint . --ext ts --ext js"
   },
   "repository": {
     "type": "git",
@@ -37,6 +38,7 @@
     "mongoose": "~5.7.5"
   },
   "devDependencies": {
+    "eslint": "^6.8.0",
     "prettier": "^1.19.1"
   }
 }
