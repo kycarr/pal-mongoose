@@ -7,7 +7,10 @@
     "lib"
   ],
   "scripts": {
-    "test": "echo 'implement tests'"
+    "format": "prettier --write '**/*.{js,jsx,json,ts,tsx}'",
+    "test:all": "npm run test:format && npm run test:audit",
+    "test:audit": "npm audit --audit-level=moderate --production",
+    "test:format": "prettier --check '**/*.{js,jsx,json,ts,tsx}'"
   },
   "repository": {
     "type": "git",
@@ -32,5 +35,8 @@
   },
   "peerDependencies": {
     "mongoose": "~5.7.5"
+  },
+  "devDependencies": {
+    "prettier": "^1.19.1"
   }
 }
