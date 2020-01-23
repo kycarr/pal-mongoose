@@ -38,6 +38,7 @@ describe("User", function() {
         mongoose.Types.ObjectId("5bf4a366becb4e208de99099")
       ).exec();
       expect(user.name).to.eql("DeletedUser");
+      expect(await User.findActiveById("5bf4a366becb4e208de99099")).to.not.exist
     });
   });
 
@@ -51,6 +52,11 @@ describe("User", function() {
       const available = await User.isUserNameAvailable("untakenname");
       expect(available).to.eql(true);
     });
+
+    it("determines a user name taken by a deleted user is unavailable", async () => {
+      const available = await User.isUserNameAvailable("DeletedUser");
+      expect(available).to.eql(false);
+    });
   });
 
   describe("isEmailAvailable", function() {
@@ -62,6 +68,11 @@ describe("User", function() {
     it("determines an email not assigned to any user is available", async () => {
       const available = await User.isEmailAvailable("kcarr100@ict.usc.edu");
       expect(available).to.eql(true);
+    });
+
+    it("determines an email assigned to a deleted user is unavailable", async () => {
+      const available = await User.isEmailAvailable("deleteduser@pal.ict.usc.edu");
+      expect(available).to.eql(false);
     });
   });
 });
