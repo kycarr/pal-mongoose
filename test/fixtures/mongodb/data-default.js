@@ -119,6 +119,7 @@ module.exports = {
 
   resources: [
     {
+      _id: ObjectId("5cffef5ebecb4e208d44eb41"),
       explorationLevel: 0.5,
       duration: 10,
       alias: "inots-pushing-the-line",
@@ -139,6 +140,7 @@ module.exports = {
       _id: ObjectId("5cffef5ebecb4e208d44eb41")
     },
     {
+      _id: ObjectId("5b5a2cd69b1fafcf999d9222"),
       explorationLevel: 0,
       duration: 60,
       alias: "Polynomials Overview",
