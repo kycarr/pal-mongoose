@@ -38,7 +38,24 @@ describe("User", function() {
         mongoose.Types.ObjectId("5bf4a366becb4e208de99099")
       ).exec();
       expect(user.name).to.eql("DeletedUser");
-      expect(await User.findActiveById("5bf4a366becb4e208de99099")).to.not.exist
+      expect(await User.findActiveById("5bf4a366becb4e208de99099")).to.not
+        .exist;
+    });
+  });
+
+  describe("findActive", function() {
+    it("finds all users EXCEPT deleted users", async () => {
+      const users = await User.findActive({});
+      expect(users.find(u => u.name === "kcarr").name).to.eql("kcarr");
+      expect(users.find(u => u.name === "larry").name).to.eql("larry");
+      expect(users.find(u => u.name === "Expert").name).to.eql("Expert");
+      expect(users.find(u => u.name === "DeletedUser")).to.not.exist;
+    });
+
+    it("applies a query like the default mongoose find function", async () => {
+      const users = await User.findActive({ name: "larry" });
+      expect(users[0].name).to.eql("larry");
+      expect(users.length).to.eql(1);
     });
   });
 
@@ -71,7 +88,9 @@ describe("User", function() {
     });
 
     it("determines an email assigned to a deleted user is unavailable", async () => {
-      const available = await User.isEmailAvailable("deleteduser@pal.ict.usc.edu");
+      const available = await User.isEmailAvailable(
+        "deleteduser@pal.ict.usc.edu"
+      );
       expect(available).to.eql(false);
     });
   });
