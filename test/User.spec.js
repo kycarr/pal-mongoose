@@ -59,6 +59,22 @@ describe("User", function() {
     });
   });
 
+  describe("findOneActive", function() {
+    it("applies a query like the default mongoose find function", async () => {
+      const user = await User.findOneActive({
+        name: { $in: ["kcarr", "larry"] }
+      });
+      expect(user.name).to.eql("kcarr");
+    });
+
+    it("never returns a deleted user", async () => {
+      const user = await User.findOneActive({
+        name: "DeletedUser"
+      });
+      expect(user).to.not.exist;
+    });
+  });
+
   describe("isUserNameAvailable", function() {
     it("determines a user name belonging to an active user is unavailable", async () => {
       const available = await User.isUserNameAvailable("kcarr");
