@@ -171,6 +171,14 @@ module.exports = {
       nameLower: "expert",
       email: "expert@pal.ict.usc.edu",
       password: "acceptsanything"
+    },
+    {
+      _id: ObjectId("5bf4a366becb4e208de99099"),
+      name: "DeletedUser",
+      nameLower: "deleteduser",
+      email: "deleteduser@pal.ict.usc.edu",
+      password: "acceptsanything",
+      deleted: true
     }
   ],
 
