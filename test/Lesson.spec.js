@@ -12,22 +12,6 @@ describe("Lesson", function() {
     await mongoUnit.drop();
   });
 
-  describe("find", function() {
-    it("finds lessons by topic", async () => {
-      const topicLessons = await Lesson.find({
-        topic: mongoose.Types.ObjectId("5ba2ef369b1fafcf999a95dc")
-      });
-      expect(topicLessons[0]).to.have.property(
-        "name",
-        "Review Diode Current Flow"
-      );
-      expect(topicLessons[0]).to.have.property(
-        "alias",
-        "diode-action-review-diode-current-flow"
-      );
-    });
-  });
-
   describe("findOneByIdOrAlias", function() {
     it("finds one by alias", async () => {
       const item = await Lesson.findOneByIdOrAlias(

@@ -73,7 +73,7 @@ module.exports = {
 
   topics: [
     {
-      _id: ObjectId("5ba2ef369b1fafcf999a95dc"),
+      _id: ObjectId("5bb6540bbecb4e208da0f6e7"),
       name: "Diode Action",
       alias: "diode-action",
       recommender: null
@@ -88,18 +88,64 @@ module.exports = {
 
   lessons: [
     {
-      _id: ObjectId("5b5a2cd69b1fafcf999d932e"),
-      name: "Review Diode Current Flow",
-      alias: "diode-action-review-diode-current-flow",
-      desc: "The direction that current flows in a diode",
+      _id: ObjectId("5bb6540cbecb4e208da0f9b4"),
+      alias: "diode-action-diodes-tutorial",
+      createdAt: "2018-10-04T17:55:24.263Z",
+      desc: "An intro tutorial covering the basics of diodes.",
+      displayType: "web",
+      name: "Diodes (Tutorial)",
+      ord: 1,
+      resources: [ObjectId("5bb6540bbecb4e208da0f72c")],
+      topic: ObjectId("5bb6540bbecb4e208da0f6e7"),
+      type: "teaching",
+      updatedAt: "2020-01-15T20:17:48.048Z",
+      deleted: false
+    },
+    {
+      _id: ObjectId("5bb6540cbecb4e208da0f9b5"),
+      alias: "diode-action-transistors-sneak-peak",
+      createdAt: "2018-10-04T17:55:24.264Z",
+      desc: "Revisit basic circuits.",
+      displayType: "web",
+      estMinHigh: 3,
+      estMinLow: 2,
+      name: "Transistors: Sneak Peek",
+      ord: -1,
+      resources: [ObjectId("5bb6540bbecb4e208da0f729")],
+      topic: ObjectId("5bb6540bbecb4e208da0f6e7"),
       type: "testing",
+      updatedAt: "2020-01-15T20:17:48.383Z",
+      deleted: true
+    },
+    {
+      _id: ObjectId("5bb6540cbecb4e208da0f9b6"),
+      alias: "diode-action-review-diode-current-flow",
+      createdAt: "2018-10-04T17:55:24.264Z",
+      desc: "The direction that current flows in a diode",
       displayType: "auto-tutor",
-      ord: 2,
-      estMinLow: 1,
-      estMinHigh: 2,
       downloadable: true,
-      deleted: false,
-      topic: ObjectId("5ba2ef369b1fafcf999a95dc")
+      name: "Review Diode Current Flow",
+      ord: 2,
+      resources: [ObjectId("5bb6540bbecb4e208da0f727")],
+      topic: ObjectId("5bb6540bbecb4e208da0f6e7"),
+      type: "testing",
+      updatedAt: "2020-01-15T20:17:48.048Z",
+      deleted: false
+    },
+    {
+      _id: ObjectId("5bb6540cbecb4e208da0f9b8"),
+      alias: "diode-action-review-normal-diode-breakdown-mode",
+      createdAt: "2018-10-04T17:55:24.264Z",
+      desc: "Describe how reverse bias current flow affects a normal diode",
+      displayType: "auto-tutor",
+      downloadable: true,
+      name: "Review Normal Diode Breakdown Mode",
+      ord: 3,
+      resources: [ObjectId("5bb6540bbecb4e208da0f72f")],
+      topic: ObjectId("5bb6540bbecb4e208da0f6e7"),
+      type: "testing",
+      updatedAt: "2020-01-15T20:17:48.048Z",
+      deleted: false
     },
     {
       _id: ObjectId("5bb6540cbecb4e208da0fa6d"),

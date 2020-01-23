@@ -22,7 +22,6 @@ describe("Resource", function() {
     });
 
     it("finds one by id string", async () => {
-      console.log("resources=" + (await Resource.find({})));
       const item = await Resource.findOneByIdOrAlias(
         "5cffef5ebecb4e208d44eb41"
       );
