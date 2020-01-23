@@ -1,6 +1,53 @@
 const mongoose = require("mongoose");
 const { ObjectId } = mongoose.Types;
 module.exports = {
+  careers: [
+    {
+      _id: ObjectId("5d799472becb4e208db91c7a"),
+      alias: "e2-fire-controlman",
+      createdAt: "2019-09-12T00:42:26.429Z",
+      desc: "",
+      name: "E2 Fire Controlman",
+      ord: 1,
+      suggestedGoals: [
+        ObjectId("5bb6540cbecb4e208da0fb63"),
+        ObjectId("5bb6540cbecb4e208da0fb65"),
+        ObjectId("5bb6540cbecb4e208da0fb64")
+      ],
+      updatedAt: "2020-01-15T20:17:48.765Z",
+      defaultSuggested: true
+    },
+    {
+      _id: ObjectId("5d799472becb4e208db91c7b"),
+      alias: "e6-petty-officer-first-class",
+      createdAt: "2019-09-12T00:42:26.429Z",
+      desc: "",
+      name: "E6 Petty Officer First Class",
+      ord: 3,
+      suggestedGoals: [ObjectId("5d643ec1becb4e208d4bcf81")],
+      updatedAt: "2020-01-15T20:17:48.765Z"
+    },
+    {
+      _id: ObjectId("5d799472becb4e208db91c7c"),
+      alias: "e5-petty-officer-second-class",
+      createdAt: "2019-09-12T00:42:26.429Z",
+      desc: "",
+      name: "E5 Petty Officer Second Class",
+      ord: 2,
+      suggestedGoals: [ObjectId("5d643ec1becb4e208d4bcf81")],
+      updatedAt: "2020-01-15T20:17:48.765Z"
+    },
+    {
+      _id: ObjectId("5d799472becb4e208db91c7d"),
+      alias: "dhs-testing-and-evaluation-leader",
+      createdAt: "2019-09-12T00:42:26.429Z",
+      desc: "",
+      name: "DHS Testing & Evaluation Leader",
+      ord: 0,
+      suggestedGoals: [ObjectId("5d701ba9becb4e208d893545")],
+      updatedAt: "2020-01-15T20:17:48.765Z"
+    }
+  ],
   goals: [
     {
       _id: ObjectId("5b5a2cd69b1fafcf999d957e"),
