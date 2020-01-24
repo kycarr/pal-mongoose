@@ -1,0 +1,54 @@
+{
+  "name": "pal-mongoose",
+  "version": "1.0.0",
+  "description": "Mongoose types underpinning pal api",
+  "main": "./lib",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "format": "prettier --write '**/*.{js,jsx,json,ts,tsx}'",
+    "test": "export ENV=test && export NODE_ENV=test && npx mocha --full-trace --recursive --reporter spec --delay",
+    "test:all": "npm run test:format && npm run test:audit && npm run test:lint",
+    "test:audit": "npm audit --audit-level=moderate --production",
+    "test:format": "prettier --check '**/*.{js,jsx,json,ts,tsx}'",
+    "test:lint": "eslint lib --ext ts --ext js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ICTLearningSciences/pal-mongoose.git"
+  },
+  "author": "Larry Kirschner <larrykirschner@gmail.com> (https://ict.usc.edu/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ICTLearningSciences/pal-mongoose/issues"
+  },
+  "homepage": "https://github.com/ICTLearningSciences/pal-mongoose#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "convert-hex": "^0.1.0",
+    "es6-promisify": "^6.0.2",
+    "fs-extra": "^6.0.1",
+    "is-hex": "^1.1.3",
+    "mongoose-findorcreate": "^3.0.0",
+    "parent-require": "^1.0.0",
+    "shortid": "^2.2.15",
+    "uuid": "^3.3.2"
+  },
+  "peerDependencies": {
+    "mongoose": "~5.7.5"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^6.8.0",
+    "mocha": "^6.2.2",
+    "mocha-logger": "^1.0.6",
+    "mocha-prepare": "^0.1.0",
+    "mongo-unit": "1.4.5",
+    "mongodb-prebuilt": "6.4.0",
+    "mongoose": "~5.7.5",
+    "prettier": "^1.19.1",
+    "sinon": "^7.5.0",
+    "sinon-chai": "^3.3.0"
+  }
+}
