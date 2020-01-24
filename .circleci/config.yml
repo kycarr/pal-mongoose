@@ -21,6 +21,13 @@ jobs:
       - run:
           name: Test format
           command: cd node && npm run test:format
+  test-lint:
+    executor: node
+    steps:
+      - checkout
+      - run:
+          name: Lint js
+          command: cd node && npm run test:lint
   test:
     executor: node
     steps:
@@ -35,6 +42,7 @@ jobs:
 workflows:
   test:
     jobs:
-      - test-format
       - test-audit
+      - test-format
+      - test-lint
       - test
