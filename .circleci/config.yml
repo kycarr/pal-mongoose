@@ -10,35 +10,35 @@ jobs:
       - checkout
       - run:
           name: Audit js
-          command: cd node && npm run test:audit
+          command: npm run test:audit
   test-format:
     executor: node
     steps:
       - checkout
       - run: 
           name: Install
-          command: cd node && npm ci
+          command: npm ci
       - run:
           name: Test format
-          command: cd node && npm run test:format
+          command: npm run test:format
   test-lint:
     executor: node
     steps:
       - checkout
       - run:
           name: Lint js
-          command: cd node && npm run test:lint
+          command: npm run test:lint
   test:
     executor: node
     steps:
       - checkout
       - run: 
           name: Install
-          command: cd node && npm ci
+          command: npm ci
       - run:
           name: Test
           command:
-            cd node && make test
+            make test
 workflows:
   test:
     jobs:
