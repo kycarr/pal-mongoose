@@ -25,8 +25,11 @@ jobs:
     executor: node
     steps:
       - checkout
+      - run: 
+        name: Install
+        command: npm ci
       - run:
-          name: Lint js
+          name: Test lint
           command: npm run test:lint
   test:
     executor: node
