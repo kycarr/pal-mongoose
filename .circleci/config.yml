@@ -1,0 +1,40 @@
+version: 2.1
+executors:
+  node:
+    docker:
+      - image: circleci/node:13.2
+jobs:
+  test-audit:
+    executor: node
+    steps:
+      - checkout
+      - run:
+          name: Audit js
+          command: cd node && npm run test:audit
+  test-format:
+    executor: node
+    steps:
+      - checkout
+      - run: 
+          name: Install
+          command: cd node && npm ci
+      - run:
+          name: Test format
+          command: cd node && npm run test:format
+  test:
+    executor: node
+    steps:
+      - checkout
+      - run: 
+          name: Install
+          command: cd node && npm ci
+      - run:
+          name: Test
+          command:
+            cd node && make test
+workflows:
+  test:
+    jobs:
+      - test-format
+      - test-audit
+      - test
