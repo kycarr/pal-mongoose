@@ -12,7 +12,7 @@
     "test:all": "npm run test:format && npm run test:audit && npm run test:lint",
     "test:audit": "npm audit --audit-level=moderate --production",
     "test:format": "prettier --check '**/*.{js,jsx,json,ts,tsx}'",
-    "test:lint": "eslint . --ext ts --ext js"
+    "test:lint": "eslint lib --ext ts --ext js"
   },
   "repository": {
     "type": "git",
