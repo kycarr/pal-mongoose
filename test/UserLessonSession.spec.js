@@ -132,7 +132,11 @@ describe("UserLessonSession", () => {
     it("throws an error if session is undefined", async () => {
       let errorCaught = null;
       try {
-        await UserLessonSession.saveUserLessonSession(user1);
+        await UserLessonSession.saveUserLessonSession(
+          user1,
+          undefined,
+          lesson1
+        );
       } catch (err) {
         errorCaught = err;
       }
