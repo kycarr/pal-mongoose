@@ -44,11 +44,10 @@
     "mocha": "^6.2.2",
     "mocha-logger": "^1.0.6",
     "mocha-prepare": "^0.1.0",
-    "mongo-unit": "1.4.5",
-    "mongodb-prebuilt": "6.4.0",
+    "mongo-unit": "^2.0.0",
     "mongoose": "~5.7.5",
     "prettier": "^1.19.1",
     "sinon": "^7.5.0",
-    "sinon-chai": "^3.3.0"
+    "sinon-chai": "^3.5.0"
   }
 }
