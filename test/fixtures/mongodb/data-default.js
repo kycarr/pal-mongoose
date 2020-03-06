@@ -135,6 +135,24 @@ module.exports = {
 
   lessons: [
     {
+      _id: ObjectId("5bb6540cbecb4e208da0f9c5"),
+      alias: "diode-action-prerequisites",
+      desc: "Revisit basic circuits and diodes.",
+      displayType: "multiple-choice",
+      name: "Prerequisites",
+      ord: 0,
+      resources: [
+        ObjectId("5bb6540bbecb4e208da0f721"),
+        ObjectId("5bb6540bbecb4e208da0f71e"),
+        ObjectId("5bb6540bbecb4e208da0f723"),
+        ObjectId("5bb6540bbecb4e208da0f725")
+      ],
+      topic: ObjectId("5bb6540bbecb4e208da0f6e7"),
+      type: "testing",
+      downloadable: true,
+      deleted: false
+    },
+    {
       _id: ObjectId("5bb6540cbecb4e208da0f9b4"),
       alias: "diode-action-diodes-tutorial",
       createdAt: "2018-10-04T17:55:24.263Z",
@@ -194,6 +212,7 @@ module.exports = {
       updatedAt: "2020-01-15T20:17:48.048Z",
       deleted: false
     },
+
     {
       _id: ObjectId("5bb6540cbecb4e208da0fa6d"),
       name: "Polynomials Overview",
@@ -242,6 +261,123 @@ module.exports = {
       uri:
         "https://www.khanacademy.org/math/algebra/introduction-to-polynomial-expressions/introduction-to-polynomials/v/polynomials-intro",
       assets: []
+    },
+
+    {
+      _id: ObjectId("5bb6540bbecb4e208da0f71e"),
+      alias: "diodes-101-mcq-prerequisites-02",
+      duration: 60,
+      explorationLevel: 0.25,
+      knowledgeComponents: [
+        {
+          relevance: 1,
+          kc: ObjectId("5bb6540abecb4e208da0f636")
+        }
+      ],
+      type: "multiple-choice",
+      uri: "diodes-101-mcq-prerequisites-02",
+      assets: [
+        {
+          name: "data",
+          type: "json",
+          uri:
+            "/api/1.0/resource-content/multiple-choice-questions/diodes-101-mcq-prerequisites-02"
+        },
+        {
+          name: "image-main",
+          type: "image",
+          uri:
+            "/resources/diode-action/prerequisites/mcq-02/assets/main-image.png"
+        }
+      ],
+      contentType: "multiple-choice"
+    },
+    {
+      _id: ObjectId("5bb6540bbecb4e208da0f721"),
+      alias: "diodes-101-mcq-prerequisites-01",
+      duration: 60,
+      explorationLevel: 0.25,
+      knowledgeComponents: [
+        {
+          relevance: 1,
+          kc: ObjectId("5bb6540abecb4e208da0f633")
+        }
+      ],
+      type: "multiple-choice",
+      uri: "diodes-101-mcq-prerequisites-01",
+      assets: [
+        {
+          name: "data",
+          type: "json",
+          uri:
+            "/api/1.0/resource-content/multiple-choice-questions/diodes-101-mcq-prerequisites-01"
+        },
+        {
+          name: "image-main",
+          type: "image",
+          uri:
+            "/resources/diode-action/prerequisites/mcq-01/assets/main-image.png"
+        }
+      ],
+      contentType: "multiple-choice"
+    },
+    {
+      _id: ObjectId("5bb6540bbecb4e208da0f723"),
+      alias: "diodes-101-mcq-prerequisites-03",
+      duration: 60,
+      explorationLevel: 0.25,
+      knowledgeComponents: [
+        {
+          relevance: 1,
+          kc: ObjectId("5bb6540abecb4e208da0f5f8")
+        }
+      ],
+      type: "multiple-choice",
+      uri: "diodes-101-mcq-prerequisites-03",
+      assets: [
+        {
+          name: "data",
+          type: "json",
+          uri:
+            "/api/1.0/resource-content/multiple-choice-questions/diodes-101-mcq-prerequisites-03"
+        },
+        {
+          name: "image-main",
+          type: "image",
+          uri:
+            "/resources/diode-action/prerequisites/mcq-03/assets/main-image.png"
+        }
+      ],
+      contentType: "multiple-choice"
+    },
+    {
+      _id: ObjectId("5bb6540bbecb4e208da0f725"),
+      alias: "diodes-101-mcq-prerequisites-04",
+      duration: 60,
+      explorationLevel: 0.25,
+      knowledgeComponents: [
+        {
+          relevance: 1,
+          kc: ObjectId("5bb6540abecb4e208da0f5f8")
+        }
+      ],
+      type: "multiple-choice",
+      uri: "diodes-101-mcq-prerequisites-04",
+      assets: [
+        {
+          name: "data",
+          type: "json",
+          uri:
+            "/api/1.0/resource-content/multiple-choice-questions/diodes-101-mcq-prerequisites-04"
+        },
+        {
+          name: "image-main",
+          type: "image",
+          uri:
+            "/resources/diode-action/prerequisites/mcq-04/assets/main-image.png"
+        }
+      ],
+      contentType: "multiple-choice"
     }
   ],
 

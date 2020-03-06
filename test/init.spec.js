@@ -9,6 +9,7 @@ mongoUnit
     return mongoose.connect(url, {
       reconnectTries: Number.MAX_VALUE,
       reconnectInterval: 1000,
+      useFindAndModify: false,
       useNewUrlParser: true
     });
   })

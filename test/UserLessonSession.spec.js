@@ -7,6 +7,7 @@ const UserLessonSession = require("UserLessonSession");
 describe("UserLessonSession", () => {
   let lesson1 = null;
   let lesson2 = null;
+  let lessonWithMultipleResources = null;
   let user1 = null;
   let user2 = null;
   const session1 = "session1";
@@ -22,6 +23,9 @@ describe("UserLessonSession", () => {
     lesson2 = await Lesson.findOne({
       alias: "diode-action-review-diode-current-flow"
     }).exec();
+    lessonWithMultipleResources = await Lesson.findOne({
+      alias: "diode-action-prerequisites"
+    });
   });
 
   afterEach(async () => {
@@ -197,6 +201,113 @@ describe("UserLessonSession", () => {
       expect(found2.user).to.eql(user2.id);
       expect(found2.session).to.eql(session1);
       expect(found2.lesson).to.eql(lesson2.id);
+    });
+  });
+
+  describe("isSessionResourceTerminated", () => {
+    it("returns false when the session is not found", async () => {
+      expect(
+        await UserLessonSession.isResourceTerminationPending(
+          user1,
+          session1,
+          lessonWithMultipleResources.resources[0]
+        )
+      ).to.be.false;
+    });
+
+    it("returns false when the session is marked unterminated", async () => {
+      await UserLessonSession.setResourceTerminationPending(
+        user1,
+        session1,
+        lessonWithMultipleResources.resources[0],
+        false
+      );
+      expect(
+        await UserLessonSession.isResourceTerminationPending(
+          user1,
+          session1,
+          lessonWithMultipleResources.resources[0]
+        )
+      ).to.be.false;
+    });
+
+    it("returns true when the session is marked terminated", async () => {
+      await UserLessonSession.setResourceTerminationPending(
+        user1,
+        session1,
+        lessonWithMultipleResources.resources[0],
+        true
+      );
+      expect(
+        await UserLessonSession.isResourceTerminationPending(
+          user1,
+          session1,
+          lessonWithMultipleResources.resources[0]
+        )
+      ).to.be.true;
+    });
+
+    it("returns true when the session is marked unterminated and then terminated", async () => {
+      await UserLessonSession.setResourceTerminationPending(
+        user1,
+        session1,
+        lessonWithMultipleResources.resources[0],
+        false
+      );
+      await UserLessonSession.setResourceTerminationPending(
+        user1,
+        session1,
+        lessonWithMultipleResources.resources[0],
+        true
+      );
+      expect(
+        await UserLessonSession.isResourceTerminationPending(
+          user1,
+          session1,
+          lessonWithMultipleResources.resources[0]
+        )
+      ).to.be.true;
+    });
+
+    it("supports a sequence of resources for one session", async () => {
+      await UserLessonSession.setResourceTerminationPending(
+        user1,
+        session1,
+        lessonWithMultipleResources.resources[0],
+        true
+      );
+      await UserLessonSession.setResourceTerminationPending(
+        user1,
+        session1,
+        lessonWithMultipleResources.resources[0],
+        false
+      );
+      await UserLessonSession.setResourceTerminationPending(
+        user1,
+        session1,
+        lessonWithMultipleResources.resources[1],
+        true
+      );
+      expect(
+        await UserLessonSession.isResourceTerminationPending(
+          user1,
+          session1,
+          lessonWithMultipleResources.resources[1]
+        )
+      ).to.be.true;
+      await UserLessonSession.setResourceTerminationPending(
+        user1,
+        session1,
+        lessonWithMultipleResources.resources[1],
+        false
+      );
+      expect(
+        await UserLessonSession.isResourceTerminationPending(
+          user1,
+          session1,
+          lessonWithMultipleResources.resources[1]
+        )
+      ).to.be.false;
     });
   });
 });
