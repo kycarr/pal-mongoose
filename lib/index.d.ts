@@ -291,7 +291,7 @@ declare module "pal-mongoose" {
       user: User | string | mongoose.Types.ObjectId,
       session: string,
       resource: Resource | string | mongoose.Types.ObjectId,
-      terminationPending: boolean = true
+      terminationPending?: boolean
     ) => Promise<UserLessonSession>;
   }
 }
