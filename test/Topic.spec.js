@@ -36,7 +36,7 @@ describe("Topic", function() {
     it("finds lessons belonging to a topic instance", async () => {
       const topic = await Topic.findOneByIdOrAlias("diode-action");
       const lessons = await topic.findLessons();
-      expect(lessons.length).to.eql(3);
+      expect(lessons.length).to.eql(4);
     });
 
     it("orders returned lessons by the ord field", async () => {
@@ -44,19 +44,24 @@ describe("Topic", function() {
       const lessons = await topic.findLessons();
       expect(lessons[0]).to.have.property(
         "alias",
+        "diode-action-prerequisites"
+      );
+      expect(lessons[0]).to.have.property("ord", 0);
+      expect(lessons[1]).to.have.property(
+        "alias",
         "diode-action-diodes-tutorial"
       );
-      expect(lessons[0]).to.have.property("ord", 1);
-      expect(lessons[1]).to.have.property(
+      expect(lessons[1]).to.have.property("ord", 1);
+      expect(lessons[2]).to.have.property(
         "alias",
         "diode-action-review-diode-current-flow"
       );
-      expect(lessons[1]).to.have.property("ord", 2);
-      expect(lessons[2]).to.have.property(
+      expect(lessons[2]).to.have.property("ord", 2);
+      expect(lessons[3]).to.have.property(
         "alias",
         "diode-action-review-normal-diode-breakdown-mode"
       );
-      expect(lessons[2]).to.have.property("ord", 3);
+      expect(lessons[3]).to.have.property("ord", 3);
     });
 
     it("excludes lessons marked deleted from the result", async () => {

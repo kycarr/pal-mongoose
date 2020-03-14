@@ -3,6 +3,7 @@
   "version": "1.2.0",
   "description": "Mongoose types underpinning pal api",
   "main": "./lib",
+  "typings": "./lib/index.d.ts",
   "files": [
     "lib"
   ],
@@ -12,7 +13,8 @@
     "test:all": "npm run test:format && npm run test:audit && npm run test:lint",
     "test:audit": "npm audit --audit-level=moderate --production",
     "test:format": "prettier --check '**/*.{js,jsx,json,ts,tsx}'",
-    "test:lint": "eslint lib --ext ts --ext js"
+    "test:lint": "eslint lib --ext ts --ext js",
+    "test:types": "tsc --noEmit"
   },
   "repository": {
     "type": "git",
@@ -39,6 +41,7 @@
     "mongoose": "~5.7.5"
   },
   "devDependencies": {
+    "@types/mongoose": "^5.7.3",
     "chai": "^4.2.0",
     "eslint": "^6.8.0",
     "mocha": "^6.2.2",
@@ -48,6 +51,7 @@
     "mongoose": "~5.7.5",
     "prettier": "^1.19.1",
     "sinon": "^7.5.0",
-    "sinon-chai": "^3.5.0"
+    "sinon-chai": "^3.5.0",
+    "typescript": "^3.8.3"
   }
 }
