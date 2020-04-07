@@ -12,6 +12,7 @@ declare module "pal-mongoose" {
 
   export class Career extends mongoose.Model {
     alias: string;
+    pronunciation: string;
     defaultSuggested: boolean;
     deleted: boolean;
     desc: string;
@@ -31,11 +32,13 @@ declare module "pal-mongoose" {
   export interface Focus {
     desc: string;
     name: string;
+    pronunciation: string;
     topics: mongoose.Types.ObjectId[];
   }
 
   export class Goal extends mongoose.Model {
     alias: string;
+    pronunciation: string;
     desc: string;
     focusList: [Focus];
     name: string;
@@ -115,6 +118,7 @@ declare module "pal-mongoose" {
 
   export class Lesson extends mongoose.Model {
     alias: string;
+    pronunciation: string;
     deleted: boolean;
     desc: string;
     displayType: string;
@@ -146,6 +150,7 @@ declare module "pal-mongoose" {
 
   export class Resource extends mongoose.Model {
     alias: string;
+    pronunciation: string;
     assets: {
       name: string;
       type: string;
@@ -164,6 +169,7 @@ declare module "pal-mongoose" {
   export class Topic extends mongoose.Model {
     alias: string;
     name: string;
+    pronunciation: string;
     recommender: string;
     knowledgeComponents: KnowledgeComponentRelevance[];
     prerequisiteTopics: mongoose.Types.ObjectId[];
